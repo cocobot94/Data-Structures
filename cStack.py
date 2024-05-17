@@ -14,9 +14,10 @@ class Stack:
             return
         return self.top
 
-    def push(self, node):
-        if not isinstance(node, Node):
-            return TypeError
+    def push(self, data):
+        if data is None:
+            return
+        node = Node(data)
         if self.isEmpty():
             self.top = node
         else:

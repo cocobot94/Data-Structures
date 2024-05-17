@@ -15,7 +15,10 @@ class Queue:
             return
         return self.first
 
-    def push(self, node: Node):
+    def push(self, value):
+        if value is None:
+            return
+        node = Node(value)
         if self.isEmpty():
             self.first = self.last = node
         else:
@@ -35,17 +38,6 @@ class Queue:
             self.size -= 1
             popped.next = None
             return popped
-
-    def __str__(self) -> str:
-        string = "["
-        current = self.first
-        while current != None:
-            string += str(current.value)
-            if current.next != None:
-                string += ","
-            current = current.next
-        string += "]"
-        return f"{string} --> {self.size}"
 
     def Size(self):
         return self.size
